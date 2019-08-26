@@ -1,0 +1,9 @@
+*.log
+*.tsbuildinfo
+.cache
+.DS_Store
+.history
+coverage
+dist
+node_modules
+output

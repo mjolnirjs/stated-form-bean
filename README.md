@@ -121,7 +121,7 @@ export const UserForm = () => {
           <span>{errors && errors.age}</span>
         </div>
         <button type="submit" onClick={handleSubmit}>
-          提交
+          Submit
         </button>
       </form>
     </div>

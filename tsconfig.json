@@ -16,6 +16,7 @@
       "stated-form-bean": ["src"]
     },
     "sourceMap": true,
+    "inlineSources": true,
     "strict": true,
     "stripInternal": true,
     "target": "es5"

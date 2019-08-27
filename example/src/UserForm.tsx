@@ -9,17 +9,13 @@ export const UserForm = () => {
 
   const { errors } = model.getFormField('user');
 
-  const handleSubmit = React.useCallback(
-    async e => {
-      e.preventDefault();
-      console.log(model);
-      const valid = await model.validate('user');
-      if (valid) {
-        alert('valid success');
-      }
-    },
-    [model],
-  );
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const valid = await model.validate('user');
+    if (valid) {
+      console.info('valid success');
+    }
+  };
   return (
     <div>
       <form>

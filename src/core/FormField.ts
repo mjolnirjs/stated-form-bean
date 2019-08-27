@@ -27,12 +27,12 @@ export class FormField<Values> {
     if (yupSchema === undefined) {
       throw new Error('miss yup schema for ' + String(this.field));
     }
+    this._clearErrors();
     return yupSchema
       .validate(data, {
         abortEarly: false,
       })
       .then(() => {
-        this._clearErrors();
         return true;
       })
       .catch(err => {

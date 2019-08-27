@@ -5,13 +5,16 @@ import get from 'lodash.get';
 import set from 'lodash.set';
 
 export class FormField<Values> {
-  private readonly _schema: yup.Schema<Values>;
+  readonly field: string | symbol;
+
+  private readonly _schema?: yup.Schema<Values>;
 
   private _errors: FormError<Values> = {};
 
   private _touched: { [K in keyof Values]?: FormTouched<Values[K]> } = {};
 
-  constructor(schema: yup.Schema<Values>) {
+  constructor(field: string | symbol, schema?: yup.Schema<Values>) {
+    this.field = field;
     this._schema = schema;
   }
 
@@ -23,8 +26,12 @@ export class FormField<Values> {
     return this._touched;
   }
 
-  validate(data: Values): Promise<boolean> {
-    return this._schema
+  validate(data: Values, schema?: yup.Schema<Values>): Promise<boolean> {
+    const yupSchema = schema || this._schema;
+    if (yupSchema === undefined) {
+      throw new Error('miss yup schema for ' + String(this.field));
+    }
+    return yupSchema
       .validate(data, {
         abortEarly: false,
       })

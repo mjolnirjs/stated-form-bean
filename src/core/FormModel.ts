@@ -14,24 +14,30 @@ export class FormModel<Values> {
     [K in keyof Values]: FormField<Values[K]>;
   } = {} as { [K in keyof Values]: FormField<Values[K]> };
 
-  setFormField<T extends keyof Values>(
+  setFormField<T extends keyof Values & (string | symbol)>(
     field: T,
     schema: yup.Schema<Values[T]>,
   ): void {
-    this[fields][field] = new FormField(schema);
+    this[fields][field] = new FormField(field, schema);
   }
 
   getFormField<T extends keyof Values>(field: T): FormField<Values[T]> {
     return this[fields][field];
   }
 
-  validate<T extends keyof Values>(field: T): Promise<boolean> {
+  validate<T extends keyof Values & string>(
+    field: T,
+    schema?: yup.Schema<Values[T]>,
+  ): Promise<boolean> {
+    if (this[fields][field] === undefined) {
+      this[fields][field] = new FormField(field, schema);
+    }
     const formField = this[fields][field];
 
-    const newLocal = (this as any) as Values;
-    return formField.validate(newLocal[field]).then(valid => {
-      if (Object.prototype.hasOwnProperty.call(newLocal, ForceUpdate)) {
-        (newLocal as any)[ForceUpdate](field);
+    const self = (this as any) as Values;
+    return formField.validate(self[field], schema).then(valid => {
+      if (Object.prototype.hasOwnProperty.call(self, ForceUpdate)) {
+        (self as any)[ForceUpdate](field);
       }
       return valid;
     });

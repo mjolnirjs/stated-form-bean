@@ -1,6 +1,6 @@
 {
   "name": "stated-form-bean",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.1",
   "description": "",
   "main": "dist/cjs",
   "module": "dist/es",
@@ -15,8 +15,8 @@
     "serve": "serve output",
     "build:cjs": "tsc -p src/tsconfig.cjs.json",
     "build:es": "tsc -p src/tsconfig.es.json",
-    "build:umd": "cross-env NODE_ENV=development parcel build src/index.tsx -d dist/umd --global statedBean --no-minify",
-    "build:umd:min": "parcel build src/index.tsx -d dist/umd --global statedBean -o index.min.js",
+    "build:umd": "cross-env NODE_ENV=development parcel build src/index.ts -d dist/umd --global statedFormBean --no-minify",
+    "build:umd:min": "parcel build src/index.ts -d dist/umd --global statedFormBean -o index.min.js",
     "build:example": "parcel build ./example/index.html -d output --log-level 1",
     "build": "rimraf dist output && run-p build:**",
     "lint": "cross-env EFF_NO_LINK_RULES=true eslint . --ext .js,.ts,.tsx -f friendly",

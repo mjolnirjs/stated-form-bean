@@ -1,8 +1,8 @@
 import { FormError, FormTouched } from '../types';
 
 import * as yup from 'yup';
-import get from 'lodash/get';
-import set from 'lodash/set';
+import get from 'lodash.get';
+import set from 'lodash.set';
 
 export class FormField<Values> {
   private readonly _schema: yup.Schema<Values>;

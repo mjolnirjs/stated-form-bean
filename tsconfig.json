@@ -15,7 +15,8 @@
     "paths": {
       "stated-form-bean": ["src"]
     },
-    "inlineSourceMap": true,
+    "sourceMap": true,
+    "inlineSources": true,
     "strict": true,
     "stripInternal": true,
     "target": "es5"

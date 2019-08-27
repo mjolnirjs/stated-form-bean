@@ -1,3 +1,5 @@
+import { ForceUpdate } from 'stated-bean';
+
 import { FormField } from './FormField';
 
 import * as yup from 'yup';
@@ -28,9 +30,9 @@ export class FormModel<Values> {
 
     const newLocal = (this as any) as Values;
     return formField.validate(newLocal[field]).then(valid => {
-      // TODO: use state-bean force update
-      // eslint-disable-next-line no-self-assign
-      newLocal[field] = newLocal[field];
+      if (Object.prototype.hasOwnProperty.call(newLocal, ForceUpdate)) {
+        (newLocal as any)[ForceUpdate](field);
+      }
       return valid;
     });
   }

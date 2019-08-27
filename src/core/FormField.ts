@@ -5,15 +5,14 @@ import get from 'lodash.get';
 import set from 'lodash.set';
 
 export class FormField<Values> {
-  private readonly _schema: yup.Schema<Values>;
-
   private _errors: FormError<Values> = {};
 
   private _touched: { [K in keyof Values]?: FormTouched<Values[K]> } = {};
 
-  constructor(schema: yup.Schema<Values>) {
-    this._schema = schema;
-  }
+  constructor(
+    public readonly field: string | symbol,
+    private readonly _schema?: yup.Schema<Values>,
+  ) {}
 
   get errors() {
     return this._errors;
@@ -23,8 +22,12 @@ export class FormField<Values> {
     return this._touched;
   }
 
-  validate(data: Values): Promise<boolean> {
-    return this._schema
+  validate(data: Values, schema?: yup.Schema<Values>): Promise<boolean> {
+    const yupSchema = schema || this._schema;
+    if (yupSchema === undefined) {
+      throw new Error('miss yup schema for ' + String(this.field));
+    }
+    return yupSchema
       .validate(data, {
         abortEarly: false,
       })
@@ -42,18 +45,18 @@ export class FormField<Values> {
     this._errors = {};
   }
 
-  hasError(path?: keyof Values & string): boolean {
+  hasError(path?: keyof Values): boolean {
     if (path === undefined) {
       return Object.keys(this._errors).length > 0;
     }
     return get(this._errors, path) !== undefined;
   }
 
-  getError(path: keyof Values & string) {
+  getError(path: keyof Values) {
     return get(this._errors, path);
   }
 
-  hasTouched(path: keyof Values & string): boolean {
+  hasTouched(path: keyof Values): boolean {
     return get(this._touched, path) !== undefined;
   }
 

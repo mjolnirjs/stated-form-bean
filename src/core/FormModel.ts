@@ -18,35 +18,42 @@ export class FormModel<Values> {
     field: T,
     schema: yup.Schema<Values[T]>,
   ): void {
-    this[fields][field] = new FormField(schema);
+    this[fields][field] = new FormField(field as (string | symbol), schema);
   }
 
   getFormField<T extends keyof Values>(field: T): FormField<Values[T]> {
     return this[fields][field];
   }
 
-  validate<T extends keyof Values>(field: T): Promise<boolean> {
+  validate<T extends keyof Values>(
+    this: FormModel<Values> &
+      Values & {
+        [ForceUpdate]: (field: T) => void;
+      },
+    field: T,
+    schema?: yup.Schema<Values[T]>,
+  ): Promise<boolean> {
+    if (this[fields][field] === undefined) {
+      this[fields][field] = new FormField(field as (string | symbol), schema);
+    }
     const formField = this[fields][field];
 
-    const newLocal = (this as any) as Values;
-    return formField.validate(newLocal[field]).then(valid => {
-      if (Object.prototype.hasOwnProperty.call(newLocal, ForceUpdate)) {
-        (newLocal as any)[ForceUpdate](field);
+    const self = this;
+    return formField.validate(self[field], schema).then(valid => {
+      if (Object.prototype.hasOwnProperty.call(self, ForceUpdate)) {
+        self[ForceUpdate](field);
       }
       return valid;
     });
   }
 
-  [_clearErrors](field: keyof Values & (string | symbol)) {
+  [_clearErrors](field: keyof Values) {
     if (this[fields] !== undefined && this[fields][field] !== undefined) {
       this[fields][field]._clearErrors();
     }
   }
 
-  [_addError](
-    field: keyof Values & (string | symbol),
-    error: yup.ValidationError,
-  ) {
+  [_addError](field: keyof Values, error: yup.ValidationError) {
     const formField = this.getFormField(field);
 
     formField._addError(error);

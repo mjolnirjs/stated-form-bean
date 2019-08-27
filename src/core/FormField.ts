@@ -13,7 +13,7 @@ export class FormField<Values> {
 
   private _touched: { [K in keyof Values]?: FormTouched<Values[K]> } = {};
 
-  constructor(field: string | symbol, schema?: yup.Schema<Values>) {
+  constructor(public readonly field: string | symbol, private readonly _schema?: yup.Schema<Values>) {
     this.field = field;
     this._schema = schema;
   }

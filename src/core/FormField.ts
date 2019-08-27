@@ -12,10 +12,7 @@ export class FormField<Values> {
   constructor(
     public readonly field: string | symbol,
     private readonly _schema?: yup.Schema<Values>,
-  ) {
-    this.field = field;
-    this._schema = _schema;
-  }
+  ) {}
 
   get errors() {
     return this._errors;

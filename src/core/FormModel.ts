@@ -26,6 +26,10 @@ export class FormModel<Values> {
   }
 
   validate<T extends keyof Values>(
+    this: FormModel<Values> &
+      Values & {
+        [ForceUpdate]: (field: T) => void;
+      },
     field: T,
     schema?: yup.Schema<Values[T]>,
   ): Promise<boolean> {
@@ -34,10 +38,10 @@ export class FormModel<Values> {
     }
     const formField = this[fields][field];
 
-    const self = (this as any) as Values;
+    const self = this;
     return formField.validate(self[field], schema).then(valid => {
       if (Object.prototype.hasOwnProperty.call(self, ForceUpdate)) {
-        (self as any)[ForceUpdate](field);
+        self[ForceUpdate](field);
       }
       return valid;
     });
@@ -49,10 +53,7 @@ export class FormModel<Values> {
     }
   }
 
-  [_addError](
-    field: keyof Values & (string | symbol),
-    error: yup.ValidationError,
-  ) {
+  [_addError](field: keyof Values, error: yup.ValidationError) {
     const formField = this.getFormField(field);
 
     formField._addError(error);

@@ -14,23 +14,23 @@ export class FormModel<Values> {
     [K in keyof Values]: FormField<Values[K]>;
   } = {} as { [K in keyof Values]: FormField<Values[K]> };
 
-  setFormField<T extends keyof Values & (string | symbol)>(
+  setFormField<T extends keyof Values>(
     field: T,
     schema: yup.Schema<Values[T]>,
   ): void {
-    this[fields][field] = new FormField(field, schema);
+    this[fields][field] = new FormField(field as (string | symbol), schema);
   }
 
   getFormField<T extends keyof Values>(field: T): FormField<Values[T]> {
     return this[fields][field];
   }
 
-  validate<T extends keyof Values & string>(
+  validate<T extends keyof Values>(
     field: T,
     schema?: yup.Schema<Values[T]>,
   ): Promise<boolean> {
     if (this[fields][field] === undefined) {
-      this[fields][field] = new FormField(field, schema);
+      this[fields][field] = new FormField(field as (string | symbol), schema);
     }
     const formField = this[fields][field];
 
@@ -43,7 +43,7 @@ export class FormModel<Values> {
     });
   }
 
-  [_clearErrors](field: keyof Values & (string | symbol)) {
+  [_clearErrors](field: keyof Values) {
     if (this[fields] !== undefined && this[fields][field] !== undefined) {
       this[fields][field]._clearErrors();
     }

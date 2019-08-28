@@ -26,10 +26,7 @@ export class FormModel<Values> {
   }
 
   validate<T extends keyof Values>(
-    this: FormModel<Values> &
-      Values & {
-        [ForceUpdate]: (field: T) => void;
-      },
+    this: FormModel<Values> & Values,
     field: T,
     schema?: yup.Schema<Values[T]>,
   ): Promise<boolean> {
@@ -38,7 +35,8 @@ export class FormModel<Values> {
     }
     const formField = this[fields][field];
 
-    const self = this;
+    const self = this as FormModel<Values> &
+      Values & { [ForceUpdate]: (field: T) => void };
     return formField.validate(self[field], schema).then(valid => {
       if (Object.prototype.hasOwnProperty.call(self, ForceUpdate)) {
         self[ForceUpdate](field);

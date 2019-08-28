@@ -522,4 +522,4 @@ function n(n,e){var o=n.length,a=new Array(o),d={},i=o,f=r(e),w=t(n);for(e.forEa
 },{"./cjs/react-dom.production.min.js":"i17t"}],"zo2T":[function(require,module,exports) {
 "use strict";var e=require("stated-bean"),t=require("./src/UserForm"),r=u(require("react-dom")),a=u(require("react")),n=require("stated-form-bean");function u(e){return e&&e.__esModule?e:{default:e}}var l=new e.StatedBeanApplication;l.setInterceptors(new n.FormValidateInterceptor);var d=function(){return a.default.createElement(e.StatedBeanProvider,{application:l,types:[]},a.default.createElement(t.UserForm,null))};r.default.render(a.default.createElement(d,null),document.getElementById("root"));
 },{"stated-bean":"/ClL","./src/UserForm":"QRTs","react-dom":"NKHc","react":"1n8/","stated-form-bean":"+fUd"}]},{},["zo2T"], null)
-//# sourceMappingURL=/stated-form-bean/example.7f472c62.js.map
+//# sourceMappingURL=/stated-form-bean/example.3990c26a.js.map

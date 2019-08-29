@@ -32,7 +32,7 @@ export class FormModel<Values> {
     if (formField === undefined) {
       this[fields][field] = new FormField(field as (string | symbol));
     }
-    return formField;
+    return this[fields][field];
   }
 
   validate<T extends keyof Values>(

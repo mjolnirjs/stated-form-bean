@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-beta.6](https://github.com/mjolnirjs/stated-form-bean/compare/v0.1.0-beta.5...v0.1.0-beta.6) (2019-08-29)
+
+
+### Bug Fixes
+
+* get FormField maybe undefined ([#5](https://github.com/mjolnirjs/stated-form-bean/issues/5)) ([0ca62d0](https://github.com/mjolnirjs/stated-form-bean/commit/0ca62d0))
+
 ## [0.1.0-beta.5](https://github.com/mjolnirjs/stated-form-bean/compare/v0.1.0-beta.4...v0.1.0-beta.5) (2019-08-28)
 
 

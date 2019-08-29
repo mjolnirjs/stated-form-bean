@@ -18,11 +18,21 @@ export class FormModel<Values> {
     field: T,
     schema: yup.Schema<Values[T]>,
   ): void {
-    this[fields][field] = new FormField(field as (string | symbol), schema);
+    const formField = this[fields][field];
+    if (formField !== undefined) {
+      formField.setSchema(schema);
+    } else {
+      this[fields][field] = new FormField(field as (string | symbol), schema);
+    }
   }
 
   getFormField<T extends keyof Values>(field: T): FormField<Values[T]> {
-    return this[fields][field];
+    const formField = this[fields][field];
+
+    if (formField === undefined) {
+      this[fields][field] = new FormField(field as (string | symbol));
+    }
+    return formField;
   }
 
   validate<T extends keyof Values>(

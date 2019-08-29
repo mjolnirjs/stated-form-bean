@@ -11,7 +11,7 @@ export class FormField<Values> {
 
   constructor(
     public readonly field: string | symbol,
-    private readonly _schema?: yup.Schema<Values>,
+    private _schema?: yup.Schema<Values>,
   ) {}
 
   get errors() {
@@ -65,6 +65,10 @@ export class FormField<Values> {
       ...this._touched,
       ...touched,
     };
+  }
+
+  setSchema(schema: yup.Schema<Values>) {
+    this._schema = schema;
   }
 
   _addError(error: yup.ValidationError) {

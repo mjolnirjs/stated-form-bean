@@ -7,9 +7,10 @@ import * as React from 'react';
 export const UserForm = () => {
   const model = useStatedBean(UserModel);
 
+  console.log(model);
   const { errors } = model.getFormField('user');
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
     const valid = await model.validate('user');
     if (valid) {

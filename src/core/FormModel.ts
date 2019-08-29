@@ -27,12 +27,10 @@ export class FormModel<Values> {
   }
 
   getFormField<T extends keyof Values>(field: T): FormField<Values[T]> {
-    const formField = this[fields][field];
-
-    if (formField === undefined) {
+    if (this[fields][field] === undefined) {
       this[fields][field] = new FormField(field as (string | symbol));
     }
-    return formField;
+    return this[fields][field];
   }
 
   validate<T extends keyof Values>(

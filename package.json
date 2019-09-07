@@ -1,6 +1,6 @@
 {
   "name": "stated-form-bean",
-  "version": "0.1.0-beta.7",
+  "version": "0.2.0-beta",
   "description": "React Form Binding via StatedBean",
   "repository": "git@github.com/mjolnirjs/stated-form-bean.git",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "build": "rimraf dist lib && run-p build:**",
     "lint": "cross-env EFF_NO_LINK_RULES=true eslint . --ext js,md,ts,tsx -f friendly",
     "test": "jest --env=jsdom --coverage",
-    "type-coverage": "type-coverage --ignore-catch --ignore-files 'lib/**/*' --strict"
+    "type-coverage": "type-coverage --detail --ignore-catch --ignore-files 'lib/**/*' --strict"
   },
   "peerDependencies": {
     "stated-bean": "^0.3.0-alpha",
@@ -85,6 +85,6 @@
     "yup": "^0.27.0"
   },
   "typeCoverage": {
-    "atLeast": 97
+    "atLeast": 98
   }
 }

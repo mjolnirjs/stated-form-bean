@@ -6,12 +6,12 @@ import { FormField } from './FormField';
 
 import * as yup from 'yup';
 
-export const fields = Symbol('stated_form_bean_fields');
+export const _fields = Symbol('stated_form_bean_fields');
 export const _clearErrors = Symbol('stated_form_bean_clearErrors');
 export const _addError = Symbol('stated_form_bean_addError');
 
 export class FormModel<Values> {
-  private readonly [fields]: {
+  private readonly [_fields]: {
     [K in keyof Values]: FormField<Values[K]>;
   } = {} as { [K in keyof Values]: FormField<Values[K]> };
 
@@ -19,28 +19,28 @@ export class FormModel<Values> {
     field: T,
     schema: yup.Schema<Values[T]>,
   ): void {
-    const formField = this[fields][field];
+    const formField = this[_fields][field];
     if (formField !== undefined) {
       formField.setSchema(schema);
     } else {
-      this[fields][field] = new FormField(field as (string | symbol), schema);
+      this[_fields][field] = new FormField(field as (string | symbol), schema);
     }
   }
 
   getFormField<T extends keyof Values>(field: T): FormField<Values[T]> {
-    if (this[fields][field] === undefined) {
+    if (this[_fields][field] === undefined) {
       const validFieldMeta = getMetadataStorage().getField<Values>(
         Object.getPrototypeOf(this).constructor,
         field,
       );
       if (validFieldMeta !== undefined) {
-        this[fields][field] = new FormField(
+        this[_fields][field] = new FormField(
           field as (string | symbol),
           validFieldMeta.schema as yup.Schema<Values[T]>,
         );
       }
     }
-    return this[fields][field];
+    return this[_fields][field];
   }
 
   validate<T extends keyof Values>(
@@ -48,8 +48,8 @@ export class FormModel<Values> {
     field: T,
     schema?: yup.Schema<Values[T]>,
   ): Promise<boolean> {
-    console.log(this[fields]);
-    if (this[fields][field] === undefined) {
+    console.log(this[_fields]);
+    if (this[_fields][field] === undefined) {
       let validSchema = schema;
       if (schema === undefined) {
         console.log(Object.getPrototypeOf(this).constructor, field);
@@ -62,12 +62,12 @@ export class FormModel<Values> {
             ? (validFieldMeta.schema as yup.Schema<Values[T]>)
             : undefined;
       }
-      this[fields][field] = new FormField(
+      this[_fields][field] = new FormField(
         field as (string | symbol),
         validSchema,
       );
     }
-    const formField = this[fields][field];
+    const formField = this[_fields][field];
 
     const self = this as FormModel<Values> &
       Values & { [ForceUpdate]: (field: T) => void };
@@ -80,8 +80,8 @@ export class FormModel<Values> {
   }
 
   [_clearErrors](field: keyof Values) {
-    if (this[fields] !== undefined && this[fields][field] !== undefined) {
-      this[fields][field]._clearErrors();
+    if (this[_fields] !== undefined && this[_fields][field] !== undefined) {
+      this[_fields][field]._clearErrors();
     }
   }
 

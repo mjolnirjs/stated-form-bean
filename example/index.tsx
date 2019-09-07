@@ -1,10 +1,10 @@
 import { StatedBeanApplication, StatedBeanProvider } from 'stated-bean';
+import { FormValidator } from 'stated-form-bean';
 
 import { UserForm } from './src/UserForm';
 
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { FormValidator } from 'stated-form-bean';
 
 const app = new StatedBeanApplication();
 

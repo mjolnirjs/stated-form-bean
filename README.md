@@ -14,6 +14,8 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![codechecks.io](https://raw.githubusercontent.com/codechecks/docs/master/images/badges/badge-default.svg?sanitize=true)](https://codechecks.io)
 
+> React Form Binding via [StatedBean](https://github.com/mjolnirjs/stated-bean)
+
 ## Install
 
 ```sh

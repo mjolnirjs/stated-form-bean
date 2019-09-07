@@ -1,6 +1,6 @@
 import { StatedBean, Stated } from 'stated-bean';
-
 import { Valid, FormModel } from 'stated-form-bean';
+
 import * as yup from 'yup';
 
 export interface User {

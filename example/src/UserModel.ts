@@ -1,6 +1,6 @@
 import { StatedBean, Stated } from 'stated-bean';
-
 import { Valid, FormModel } from 'stated-form-bean';
+
 import * as yup from 'yup';
 
 export interface User {
@@ -20,7 +20,7 @@ export class UserModel extends FormModel<UserModel> {
         .max(99)
         .required(),
     }),
-    { validOnChange: false },
+    // { validOnChange: false },
   )
   user: Partial<User> = { age: 15 };
 

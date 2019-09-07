@@ -1,11 +1,11 @@
-import { useStatedBean } from 'stated-bean';
+import { useBean } from 'stated-bean';
 
 import { UserModel } from './UserModel';
 
 import * as React from 'react';
 
 export const UserForm = () => {
-  const model = useStatedBean(UserModel);
+  const model = useBean(UserModel);
 
   console.log(model);
   const { errors } = model.getFormField('user');

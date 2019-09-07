@@ -1,1 +1,1 @@
-export * from './FormValidateInterceptor';
+export * from './FormValidator';

@@ -8801,10 +8801,10 @@ state-toggle@^1.0.0:
   resolved "https://registry.yarnpkg.com/state-toggle/-/state-toggle-1.0.2.tgz#75e93a61944116b4959d665c8db2d243631d6ddc"
   integrity sha512-8LpelPGR0qQM4PnfLiplOQNJcIN1/r2Gy0xKB2zKnIW2YzPMt2sR4I/+gtPjhN7Svh9kw+zqEg2SFwpBO9iNiw==
 
-stated-bean@^0.1.3-beta:
-  version "0.1.3-beta"
-  resolved "https://registry.yarnpkg.com/stated-bean/-/stated-bean-0.1.3-beta.tgz#4f0cc44ccbf90c9e9e3a109ee84619f2e7cc7d9e"
-  integrity sha512-/xZ93+Wyrw6EE8dlmqaFsV1ei4dRVUzn0Gs6XU1YHl6LOmu61ClxxgUPZdZOpPWNX71SeEPilSAtpp96ydAGdA==
+stated-bean@^0.3.0:
+  version "0.3.0-alpha"
+  resolved "https://registry.yarnpkg.com/stated-bean/-/stated-bean-0.3.0-alpha.tgz#59da16142c4160ed4ae5e7720d5c430832065e08"
+  integrity sha512-4H5enKZ5bD9L7qtUQD60NbQQK7GVTEXYYxglhKcXpxj0onIlf5iuRAgID88LvlA1DXHkJF35SMQMiv5HBzQjvg==
 
 static-eval@^2.0.0:
   version "2.0.2"

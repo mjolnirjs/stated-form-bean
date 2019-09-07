@@ -20,7 +20,7 @@ export class UserModel extends FormModel<UserModel> {
         .max(99)
         .required(),
     }),
-    { validOnChange: false },
+    // { validOnChange: false },
   )
   user: Partial<User> = { age: 15 };
 

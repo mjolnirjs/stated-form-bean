@@ -4,11 +4,11 @@ import { UserForm } from './src/UserForm';
 
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { FormValidateInterceptor } from 'stated-form-bean';
+import { FormValidator } from 'stated-form-bean';
 
 const app = new StatedBeanApplication();
 
-app.setInterceptors(new FormValidateInterceptor());
+app.use(FormValidator);
 
 const App = () => {
   return (

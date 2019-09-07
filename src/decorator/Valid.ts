@@ -3,14 +3,14 @@ import { ValidOption } from '../types';
 
 import { Schema } from 'yup';
 
-export function Valid<T>(
-  schema: Schema<T>,
+export function Valid(
+  schema: Schema<unknown>,
   option: ValidOption = { validOnChange: true },
 ): PropertyDecorator {
   return (target, propertyKey) => {
-    getMetadataStorage().collectField({
+    getMetadataStorage().collectField<any>({
       target: target.constructor,
-      field: propertyKey,
+      field: propertyKey as any,
       schema,
       validOption: option,
     });

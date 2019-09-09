@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1-beta.1](https://github.com/mjolnirjs/stated-form-bean/compare/v0.2.1-beta...v0.2.1-beta.1) (2019-09-09)
+
 ### [0.2.1-beta](https://github.com/mjolnirjs/stated-form-bean/compare/v0.2.0-beta...v0.2.1-beta) (2019-09-09)
 
 

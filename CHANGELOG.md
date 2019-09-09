@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1-beta](https://github.com/mjolnirjs/stated-form-bean/compare/v0.2.0-beta...v0.2.1-beta) (2019-09-09)
+
+
+### Bug Fixes
+
+* **build:** build ts targetting es5 by default, bump dev dependencies ([190376f](https://github.com/mjolnirjs/stated-form-bean/commit/190376f))
+
 ## [0.2.0-beta](https://github.com/mjolnirjs/stated-form-bean/compare/v0.1.0-beta.7...v0.2.0-beta) (2019-09-07)
 
 

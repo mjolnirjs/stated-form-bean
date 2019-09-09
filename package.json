@@ -73,7 +73,7 @@
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0",
     "rimraf": "^3.0.0",
-    "rollup": "^1.21.0",
+    "rollup": "^1.21.1",
     "serve": "^11.1.0",
     "stated-bean": "^0.3.1-beta",
     "stated-form-bean": "link:src",

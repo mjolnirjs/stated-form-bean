@@ -1,6 +1,6 @@
 {
   "name": "stated-form-bean",
-  "version": "0.2.0-beta",
+  "version": "0.2.1-beta",
   "description": "React Form Binding via StatedBean",
   "repository": "git@github.com/mjolnirjs/stated-form-bean.git",
   "license": "MIT",
@@ -20,14 +20,14 @@
     "build:ts": "tsc -p src",
     "build:umd": "rollup -c node_modules/@1stg/rollup-config/module.js",
     "build:umd:min": "cross-env NODE_ENV=production yarn build:umd",
-    "build:example": "parcel build ./example/index.html -d dist --log-level 1",
+    "build:example": "parcel build ./example/index.html -d dist",
     "build": "rimraf dist lib && run-p build:**",
     "lint": "cross-env EFF_NO_LINK_RULES=true eslint . --ext js,md,ts,tsx -f friendly",
-    "test": "jest --env=jsdom --coverage",
+    "test": "jest",
     "type-coverage": "type-coverage --detail --ignore-catch --ignore-files 'lib/**/*' --strict"
   },
   "peerDependencies": {
-    "stated-bean": "^0.3.0-alpha",
+    "stated-bean": "^0.3.1-beta",
     "yup": "^0.27.0"
   },
   "dependencies": {
@@ -73,9 +73,9 @@
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0",
     "rimraf": "^3.0.0",
-    "rollup": "^1.20.3",
+    "rollup": "^1.21.0",
     "serve": "^11.1.0",
-    "stated-bean": "^0.3.0-alpha",
+    "stated-bean": "^0.3.1-beta",
     "stated-form-bean": "link:src",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",

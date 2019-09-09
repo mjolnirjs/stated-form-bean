@@ -1,6 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "inlineSources": true,
     "outDir": "../lib/es",
     "declarationDir": "../lib/types"
   }

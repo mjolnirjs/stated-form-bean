@@ -1,6 +1,6 @@
 {
   "name": "stated-form-bean",
-  "version": "0.2.1-beta",
+  "version": "0.2.1-beta.1",
   "description": "React Form Binding via StatedBean",
   "repository": "git@github.com/mjolnirjs/stated-form-bean.git",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "type-coverage": "type-coverage --detail --ignore-catch --ignore-files 'lib/**/*' --strict"
   },
   "peerDependencies": {
-    "stated-bean": "^0.3.1-beta",
+    "stated-bean": "^0.3.1-beta.1",
     "yup": "^0.27.0"
   },
   "dependencies": {
@@ -53,7 +53,7 @@
     "@types/lodash.get": "^4.4.6",
     "@types/lodash.set": "^4.3.6",
     "@types/node": "^12.7.4",
-    "@types/react": "^16.9.1",
+    "@types/react": "^16.9.2",
     "@types/react-dom": "^16.8.5",
     "@types/react-test-renderer": "^16.9.0",
     "@types/yup": "^0.26.23",
@@ -64,7 +64,7 @@
     "eslint": "^6.3.0",
     "eslint-formatter-friendly": "^7.0.0",
     "husky": "^3.0.5",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "lint-staged": "^9.2.5",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.3",
@@ -75,11 +75,9 @@
     "rimraf": "^3.0.0",
     "rollup": "^1.21.1",
     "serve": "^11.1.0",
-    "stated-bean": "^0.3.1-beta",
+    "stated-bean": "^0.3.1-beta.1",
     "stated-form-bean": "link:src",
     "ts-jest": "^24.0.2",
-    "ts-node": "^8.3.0",
-    "tslib": "^1.10.0",
     "type-coverage": "^2.2.0",
     "typescript": "^3.6.2",
     "yup": "^0.27.0"

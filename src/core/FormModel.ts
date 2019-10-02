@@ -1,4 +1,4 @@
-import { ForceUpdate } from 'stated-bean';
+import { StatedBeanType, StatedBeanSymbol } from 'stated-bean';
 
 import { getMetadataStorage } from '../metadata';
 
@@ -69,11 +69,10 @@ export class FormModel<Values> {
     }
     const formField = this[_fields][field];
 
-    const self = this as FormModel<Values> &
-      Values & { [ForceUpdate]: (field: T) => void };
-    return formField.validate(self[field], schema).then(valid => {
-      if (Object.prototype.hasOwnProperty.call(self, ForceUpdate)) {
-        self[ForceUpdate](field);
+    return formField.validate(this[field], schema).then(valid => {
+      const bean = (this as unknown) as StatedBeanType<Values>;
+      if (bean[StatedBeanSymbol] !== undefined) {
+        bean[StatedBeanSymbol].forceUpdate(field);
       }
       return valid;
     });

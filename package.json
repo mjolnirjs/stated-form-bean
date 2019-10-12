@@ -57,7 +57,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-test-renderer": "^16.9.0",
     "@types/set-value": "^2.0.0",
-    "@types/yup": "^0.26.23",
+    "@types/yup": "^0.26.24",
     "browserslist": "^4.7.0",
     "cross-env": "^6.0.2",
     "enzyme": "^3.10.0",

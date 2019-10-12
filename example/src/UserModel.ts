@@ -1,6 +1,7 @@
-import { StatedBean, Stated } from 'stated-bean';
-import { Valid, FormModel } from 'stated-form-bean';
+/* eslint-disable @typescript-eslint/no-magic-numbers */
+import { Stated, StatedBean } from 'stated-bean';
 
+import { FormBean } from 'stated-form-bean';
 import * as yup from 'yup';
 
 export interface User {
@@ -8,26 +9,34 @@ export interface User {
   age: number;
 }
 
-@StatedBean()
-export class UserModel extends FormModel<UserModel> {
-  @Stated()
-  @Valid(
-    yup.object().shape({
-      name: yup.string().required(),
-      age: yup
-        .number()
-        .min(10)
-        .max(99)
-        .required(),
-    }),
-    // { validOnChange: false },
-  )
-  user: Partial<User> = { age: 15 };
+const valid = yup.object().shape({
+  name: yup
+    .string()
+    .ensure()
+    .required(),
+  age: yup
+    .number()
+    .min(10)
+    .max(99)
+    .required(),
+});
 
-  setUser(u: Partial<User>) {
-    this.user = {
-      ...this.user,
-      ...u,
-    };
+@StatedBean()
+export class UserModel {
+  @Stated()
+  formBean = new FormBean<User>({
+    initialValues: { age: 15, name: '' },
+    schema: valid,
+  });
+
+  submit() {
+    this.formBean.validate().subscribe({
+      next: values => {
+        console.log(values);
+      },
+      error: err => {
+        console.error(err);
+      },
+    });
   }
 }

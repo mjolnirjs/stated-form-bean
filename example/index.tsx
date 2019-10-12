@@ -1,18 +1,15 @@
 import { StatedBeanApplication, StatedBeanProvider } from 'stated-bean';
-import { FormValidator } from 'stated-form-bean';
 
 import { UserForm } from './src/UserForm';
 
-import ReactDOM from 'react-dom';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 const app = new StatedBeanApplication();
 
-app.use(FormValidator);
-
 const App = () => {
   return (
-    <StatedBeanProvider application={app} types={[]}>
+    <StatedBeanProvider application={app}>
       <UserForm />
     </StatedBeanProvider>
   );

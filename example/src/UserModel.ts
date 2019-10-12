@@ -27,10 +27,11 @@ export class UserModel {
   formBean = new FormBean<User>({
     initialValues: { age: 15, name: '' },
     schema: valid,
+    validOnChange: true,
   });
 
   submit() {
-    this.formBean.validate().subscribe({
+    this.formBean.isValid().subscribe({
       next: values => {
         console.log(values);
       },

@@ -1,6 +1,6 @@
 {
   "name": "stated-form-bean",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React Form Binding via StatedBean",
   "repository": "git@github.com/mjolnirjs/stated-form-bean.git",
   "license": "MIT",

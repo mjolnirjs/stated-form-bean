@@ -15,5 +15,6 @@ export function useFormBean<T>(formBean: FormBean<T>) {
     touched: form.touched,
     setValues: formBean.setValues.bind(formBean),
     setTouched: formBean.setTouched.bind(formBean),
+    setFieldValue: formBean.setFieldValue.bind(formBean),
   };
 }

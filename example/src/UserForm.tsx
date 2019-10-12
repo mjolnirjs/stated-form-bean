@@ -8,7 +8,9 @@ import * as React from 'react';
 
 export const UserForm = () => {
   const model = useBean(UserModel);
-  const { values, errors, setValues } = useFormBean(model.formBean);
+  const { values, errors, setValues, setFieldValue } = useFormBean(
+    model.formBean,
+  );
 
   console.log(errors);
 
@@ -31,7 +33,7 @@ export const UserForm = () => {
             min={10}
             max={99}
             value={values.age}
-            onChange={e => setValues({ age: Number(e.target.value) })}
+            onChange={e => setFieldValue('age', Number(e.target.value))}
           />
           <span>{errors.age}</span>
         </div>

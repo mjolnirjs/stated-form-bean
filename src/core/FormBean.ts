@@ -1,5 +1,5 @@
-import { BehaviorSubject, from, Observable, Subject, EMPTY } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY, from, Observable, of, Subject } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
 
 import { FormError, FormTouched } from '../types';
 
@@ -121,7 +121,7 @@ export class FormBean<T> extends BehaviorSubject<FormState<T>> {
     if (this.validOnChange) {
       return this.validate();
     } else {
-      return EMPTY;
+      return of(this.values);
     }
   }
 
@@ -139,19 +139,23 @@ export class FormBean<T> extends BehaviorSubject<FormState<T>> {
     });
   }
 
-  setFieldValue(field: keyof T & string, value: T[keyof T]) {
+  setFieldValue<TFieldValue>(
+    field: keyof T & string,
+    value: TFieldValue,
+    shouldValid = false,
+  ) {
     this._changes$.next({
       action: 'SET_FIELD_VALUE',
       payload: {
         field,
-        value,
+        value: (value as unknown) as T[keyof T],
       },
     });
 
-    if (this.validOnChange) {
-      return this.validate();
+    if (this.validOnChange || shouldValid) {
+      return this.validateField<TFieldValue>(field);
     } else {
-      return EMPTY;
+      return of(value);
     }
   }
 
@@ -168,9 +172,33 @@ export class FormBean<T> extends BehaviorSubject<FormState<T>> {
         })
         .catch(err => {
           this._addError(err);
-          return err;
+          throw err;
         }),
     ).pipe(
+      switchMap(v => of(v)),
+      catchError(() => {
+        return EMPTY;
+      }),
+    );
+  }
+
+  validateField<TFieldValue = unknown>(
+    field: keyof T & string,
+  ): Observable<TFieldValue> {
+    const yupSchema = this.schema;
+    if (yupSchema === undefined) {
+      throw new Error('miss yup schema');
+    }
+    this._clearErrors();
+    return from((yupSchema
+      .validateAt(field, this.values, {
+        abortEarly: false,
+      })
+      .catch(err => {
+        this._addError(err);
+        throw err;
+      }) as unknown) as Promise<TFieldValue>).pipe(
+      switchMap(v => of(v)),
       catchError(() => {
         return EMPTY;
       }),

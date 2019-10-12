@@ -3,14 +3,12 @@ import { useBean } from 'stated-bean';
 
 import { UserModel } from './UserModel';
 
-import { useFormBean } from 'stated-form-bean';
 import * as React from 'react';
+import { useFormBean } from 'stated-form-bean';
 
 export const UserForm = () => {
   const model = useBean(UserModel);
-  const { values, errors, setValues, setFieldValue } = useFormBean(
-    model.formBean,
-  );
+  const { values, errors, setFieldValue } = useFormBean(model.formBean);
 
   console.log(errors);
 
@@ -22,7 +20,11 @@ export const UserForm = () => {
           <input
             type="text"
             value={values.name || ''}
-            onChange={e => setValues({ name: e.target.value })}
+            onChange={e =>
+              setFieldValue<string>('name', e.target.value, true).subscribe(v =>
+                console.log('name', v),
+              )
+            }
           />
           <span>{errors.name}</span>
         </div>

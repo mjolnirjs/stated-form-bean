@@ -31,7 +31,7 @@ export class UserModel {
   });
 
   submit() {
-    this.formBean.isValid().subscribe({
+    this.formBean.validate().subscribe({
       next: values => {
         console.log(values);
       },

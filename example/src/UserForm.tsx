@@ -1,22 +1,17 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { useBean } from 'stated-bean';
 
 import { UserModel } from './UserModel';
 
+import { useFormBean } from 'stated-form-bean';
 import * as React from 'react';
 
 export const UserForm = () => {
   const model = useBean(UserModel);
+  const { values, errors, setValues } = useFormBean(model.formBean);
 
-  console.log(model);
-  const { errors } = model.getFormField('user');
+  console.log(errors);
 
-  const handleSubmit = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    const valid = await model.validate('user');
-    if (valid) {
-      console.info('valid success');
-    }
-  };
   return (
     <div>
       <form>
@@ -24,10 +19,10 @@ export const UserForm = () => {
           <label>UserName:</label>
           <input
             type="text"
-            value={model.user.name || ''}
-            onChange={e => model.setUser({ name: e.target.value })}
+            value={values.name || ''}
+            onChange={e => setValues({ name: e.target.value })}
           />
-          <span>{errors && errors.name}</span>
+          <span>{errors.name}</span>
         </div>
         <div>
           <label>Age:</label>
@@ -35,12 +30,12 @@ export const UserForm = () => {
             type="number"
             min={10}
             max={99}
-            value={model.user.age}
-            onChange={e => model.setUser({ age: Number(e.target.value) })}
+            value={values.age}
+            onChange={e => setValues({ age: Number(e.target.value) })}
           />
-          <span>{errors && errors.age}</span>
+          <span>{errors.age}</span>
         </div>
-        <button type="submit" onClick={handleSubmit}>
+        <button type="button" onClick={model.submit}>
           Submit
         </button>
       </form>

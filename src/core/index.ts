@@ -1,2 +1,1 @@
-export * from './FormField';
-export * from './FormModel';
+export * from './FormBean';

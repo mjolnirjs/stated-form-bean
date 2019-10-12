@@ -81,10 +81,10 @@
     prettier-plugin-sh "^0.2.0"
     prettier-plugin-toml "^0.3.1"
 
-"@1stg/remark-config@^0.2.1":
+"@1stg/remark-config@^0.2.2":
   version "0.2.2"
-  resolved "https://registry.npm.taobao.org/@1stg/remark-config/download/@1stg/remark-config-0.2.2.tgz#3f35906383fa966a67e2aa54fef44e07f6f1a463"
-  integrity sha1-PzWQY4P6lmpn4qpU/vROB/bxpGM=
+  resolved "https://registry.yarnpkg.com/@1stg/remark-config/-/remark-config-0.2.2.tgz#3f35906383fa966a67e2aa54fef44e07f6f1a463"
+  integrity sha512-1FrRG2XfH7lJG7ZKrQjNFvSiuXK2Dju3gFgdyg8KI+y6sTkL1Hf3tqSmAzpDyk6VZJJBOozv93qonDgZPBeOsg==
   dependencies:
     remark-lint "^6.0.5"
     remark-preset-lint-consistent "^2.0.3"

@@ -17,11 +17,11 @@ export interface FormDataContext<Values> {
   touched: FormTouched<Values>;
 }
 
-export type Action = 'SET_VALUES' | 'SET_ERRORS' | 'SET_TOUCHED';
+type Action = 'SET_VALUES' | 'SET_ERRORS' | 'SET_TOUCHED' | 'RESET_VALUES';
 
-export interface FormAction<T> {
+interface FormAction<T> {
   action: Action;
-  payload: Partial<T> | FormTouched<T> | FormError<T>;
+  payload: Partial<T> | FormTouched<T> | FormError<T> | undefined;
 }
 
 export class FormBean<T> extends BehaviorSubject<FormDataContext<T>> {
@@ -53,6 +53,11 @@ export class FormBean<T> extends BehaviorSubject<FormDataContext<T>> {
             ...this.touched,
             ...ac.payload,
           },
+        });
+      } else if (ac.action === 'RESET_VALUES') {
+        this.next({
+          ...this.context,
+          values: ac.payload as T,
         });
       } else {
         this.next({
@@ -118,14 +123,21 @@ export class FormBean<T> extends BehaviorSubject<FormDataContext<T>> {
     );
   }
 
-  _clearErrors() {
+  reset(values: T | undefined = this._options.initialValues) {
+    this._changes$.next({
+      action: 'RESET_VALUES',
+      payload: values,
+    });
+  }
+
+  private _clearErrors() {
     this._changes$.next({
       action: 'SET_ERRORS',
       payload: {},
     });
   }
 
-  _addError(error: yup.ValidationError) {
+  private _addError(error: yup.ValidationError) {
     const errors = { ...this.errors };
     if (error.inner.length === 0) {
       set(errors, error.path, error.message);

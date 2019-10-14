@@ -4041,10 +4041,10 @@ envinfo@^7.3.1:
   resolved "https://registry.npm.taobao.org/envinfo/download/envinfo-7.4.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fenvinfo%2Fdownload%2Fenvinfo-7.4.0.tgz#bef4ece9e717423aaf0c3584651430b735ad6630"
   integrity sha1-vvTs6ecXQjqvDDWEZRQwtzWtZjA=
 
-enzyme-adapter-react-16@^1.14.0:
+enzyme-adapter-react-16@^1.15.1:
   version "1.15.1"
-  resolved "https://registry.npm.taobao.org/enzyme-adapter-react-16/download/enzyme-adapter-react-16-1.15.1.tgz#8ad55332be7091dc53a25d7d38b3485fc2ba50d5"
-  integrity sha1-itVTMr5wkdxTol19OLNIX8K6UNU=
+  resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.15.1.tgz#8ad55332be7091dc53a25d7d38b3485fc2ba50d5"
+  integrity sha512-yMPxrP3vjJP+4wL/qqfkT6JAIctcwKF+zXO6utlGPgUJT2l4tzrdjMDWGd/Pp1BjHBcljhN24OzNEGRteibJhA==
   dependencies:
     enzyme-adapter-utils "^1.12.1"
     enzyme-shallow-equal "^1.0.0"

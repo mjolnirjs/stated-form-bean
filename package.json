@@ -39,7 +39,7 @@
     "@1stg/browserslist-config": "^0.2.2",
     "@1stg/eslint-config": "^0.12.18",
     "@1stg/husky-config": "^0.3.0",
-    "@1stg/lint-staged": "^0.8.3",
+    "@1stg/lint-staged": "^0.8.11",
     "@1stg/prettier-config": "^0.4.2",
     "@1stg/remark-config": "^0.2.1",
     "@1stg/rollup-config": "^0.12.0",

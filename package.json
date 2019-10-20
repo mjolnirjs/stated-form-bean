@@ -35,7 +35,7 @@
     "set-value": "^3.0.1"
   },
   "devDependencies": {
-    "@1stg/babel-preset": "^0.7.2",
+    "@1stg/babel-preset": "^0.7.9",
     "@1stg/browserslist-config": "^0.2.2",
     "@1stg/eslint-config": "^0.12.18",
     "@1stg/husky-config": "^0.3.0",

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { Stated, StatedBean } from 'stated-bean';
+import * as yup from 'yup';
 
 import { FormBean } from 'stated-form-bean';
-import * as yup from 'yup';
 
 export interface User {
   name: string;

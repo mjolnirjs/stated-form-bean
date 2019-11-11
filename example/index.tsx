@@ -1,9 +1,8 @@
 import { StatedBeanApplication, StatedBeanProvider } from 'stated-bean';
-
-import { UserForm } from './src/UserForm';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { UserForm } from './src/UserForm';
 
 const app = new StatedBeanApplication();
 

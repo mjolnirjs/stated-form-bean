@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import { useBean } from 'stated-bean';
+import * as React from 'react';
 
 import { UserModel } from './UserModel';
 
-import * as React from 'react';
 import { useFormBean } from 'stated-form-bean';
 
 export const UserForm = () => {

@@ -1,10 +1,9 @@
 import { BehaviorSubject, EMPTY, from, Observable, of, Subject } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
-
-import { FormError, FormTouched } from '../types';
-
 import set from 'set-value';
 import * as yup from 'yup';
+
+import { FormError, FormTouched } from '../types';
 
 export interface FormBeanOptions<Values> {
   initialValues?: Values;
@@ -162,6 +161,7 @@ export class FormBean<T> extends BehaviorSubject<FormState<T>> {
   validate(schema?: yup.Schema<T>): Observable<T> {
     const yupSchema = schema || this.schema;
     if (yupSchema === undefined) {
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       throw new Error('miss yup schema');
     }
     this._clearErrors();
@@ -190,14 +190,16 @@ export class FormBean<T> extends BehaviorSubject<FormState<T>> {
       throw new Error('miss yup schema');
     }
     this._clearErrors();
-    return from((yupSchema
-      .validateAt(field, this.values, {
-        abortEarly: false,
-      })
-      .catch(err => {
-        this._addError(err);
-        throw err;
-      }) as unknown) as Promise<TFieldValue>).pipe(
+    return from(
+      (yupSchema
+        .validateAt(field, this.values, {
+          abortEarly: false,
+        })
+        .catch(err => {
+          this._addError(err);
+          throw err;
+        }) as unknown) as Promise<TFieldValue>,
+    ).pipe(
       switchMap(v => of(v)),
       catchError(() => {
         return EMPTY;
@@ -238,7 +240,7 @@ export class FormBean<T> extends BehaviorSubject<FormState<T>> {
       set(errors, error.path, error.message);
     }
     for (const err of error.inner) {
-      if (!(errors as any)[err.path]) {
+      if (!errors[err.path as keyof typeof errors]) {
         set(errors, err.path, err.message);
       }
     }

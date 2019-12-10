@@ -9653,10 +9653,10 @@ pako@^1.0.5, pako@~1.0.5:
   resolved "https://registry.npm.taobao.org/pako/download/pako-1.0.10.tgz#4328badb5086a426aa90f541977d4955da5c9732"
   integrity sha1-Qyi621CGpCaqkPVBl31JVdpclzI=
 
-parcel-bundler@^1.12.3:
+parcel-bundler@^1.12.4:
   version "1.12.4"
-  resolved "https://registry.npm.taobao.org/parcel-bundler/download/parcel-bundler-1.12.4.tgz#31223f4ab4d00323a109fce28d5e46775409a9ee"
-  integrity sha1-MSI/SrTQAyOhCfzijV5Gd1QJqe4=
+  resolved "https://registry.yarnpkg.com/parcel-bundler/-/parcel-bundler-1.12.4.tgz#31223f4ab4d00323a109fce28d5e46775409a9ee"
+  integrity sha512-G+iZGGiPEXcRzw0fiRxWYCKxdt/F7l9a0xkiU4XbcVRJCSlBnioWEwJMutOCCpoQmaQtjB4RBHDGIHN85AIhLQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.4.4"

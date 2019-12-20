@@ -38,7 +38,7 @@
   "devDependencies": {
     "@1stg/app-config": "^0.1.15",
     "@1stg/lib-config": "^0.1.13",
-    "@types/enzyme": "^3.10.3",
+    "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.22",
     "@types/node": "^12.12.7",
@@ -47,7 +47,7 @@
     "@types/react-test-renderer": "^16.9.1",
     "@types/set-value": "^2.0.0",
     "@types/yup": "^0.26.23",
-    "enzyme": "^3.10.0",
+    "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.3",

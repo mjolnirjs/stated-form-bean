@@ -28,7 +28,7 @@
     "type-coverage": "type-coverage --detail --ignore-catch --ignore-files 'lib/**/*' --strict"
   },
   "peerDependencies": {
-    "rxjs": "^6.0.0",
+    "rxjs": "^6.5.4",
     "stated-bean": "^0.8.2",
     "yup": "^0.27.0"
   },
@@ -55,7 +55,7 @@
     "react-dom": "^16.11.0",
     "react-test-renderer": "^16.11.0",
     "rimraf": "^3.0.0",
-    "rxjs": "^6.5.3",
+    "rxjs": "^6.5.4",
     "serve": "^11.1.0",
     "stated-bean": "^0.8.2",
     "ts-jest": "^24.0.2",

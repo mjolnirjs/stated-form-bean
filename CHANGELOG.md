@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/mjolnirjs/stated-form-bean/compare/v0.3.2...v0.4.0) (2020-03-07)
+
+
+### Features
+
+* 🎸 field validate ([36a0308](https://github.com/mjolnirjs/stated-form-bean/commit/36a0308732cfb782275ec198dabb64a12c8760dc))
+* 🎸 improve validation errors ([#78](https://github.com/mjolnirjs/stated-form-bean/issues/78)) ([d8c67ca](https://github.com/mjolnirjs/stated-form-bean/commit/d8c67ca8e18251d75694fe75c754ba277a0bda86))
+
 ### [0.3.2](https://github.com/mjolnirjs/stated-form-bean/compare/v0.3.1...v0.3.2) (2019-10-12)
 
 

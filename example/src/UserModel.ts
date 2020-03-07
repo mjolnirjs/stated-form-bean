@@ -7,6 +7,7 @@ import { FormBean } from 'stated-form-bean';
 export interface User {
   name: string;
   age: number;
+  hobby: string[];
 }
 
 const valid = yup.object().shape({
@@ -19,13 +20,17 @@ const valid = yup.object().shape({
     .min(10)
     .max(99)
     .required(),
+  hobby: yup
+    .array()
+    .of(yup.string().required())
+    .required(),
 });
 
 @StatedBean()
 export class UserModel {
   @Stated()
   formBean = new FormBean<User>({
-    initialValues: { age: 15, name: '' },
+    initialValues: { age: 15, name: '', hobby: [] },
     schema: valid,
     validOnChange: true,
   });

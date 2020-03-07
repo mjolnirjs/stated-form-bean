@@ -10,8 +10,6 @@ export const UserForm = () => {
   const model = useBean(UserModel);
   const { values, errors, setFieldValue } = useFormBean(model.formBean);
 
-  console.log(errors);
-
   return (
     <div>
       <form>

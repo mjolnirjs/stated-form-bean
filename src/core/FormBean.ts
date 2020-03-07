@@ -1,6 +1,6 @@
 import { BehaviorSubject, EMPTY, from, Observable, of, Subject } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
-import set from 'set-value';
+import set from 'lodash.set';
 import * as yup from 'yup';
 
 import { FormError, FormTouched } from '../types';
@@ -77,7 +77,7 @@ export class FormBean<T> extends BehaviorSubject<FormState<T>> {
       } else if (ac.action === 'SET_FIELD_VALUE') {
         const values = { ...this.values };
         const f = ac.payload as FormField<T>;
-        set(values, f.field, f.value);
+        set((values as unknown) as object, f.field, f.value);
         this.next({
           ...this.context,
           values,

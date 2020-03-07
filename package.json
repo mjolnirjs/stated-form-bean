@@ -1,6 +1,6 @@
 {
   "name": "stated-form-bean",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "React Form Binding via StatedBean",
   "repository": "git@github.com/mjolnirjs/stated-form-bean.git",
   "license": "MIT",
@@ -29,11 +29,11 @@
   },
   "peerDependencies": {
     "rxjs": "^6.0.0",
-    "stated-bean": "^0.8.2",
+    "stated-bean": "^0.8.3",
     "yup": "^0.27.0"
   },
   "dependencies": {
-    "set-value": "^3.0.1"
+    "lodash.set": "^4.3.2"
   },
   "devDependencies": {
     "@1stg/app-config": "^0.1.15",
@@ -41,6 +41,7 @@
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.22",
+    "@types/lodash.set": "^4.3.6",
     "@types/node": "^12.12.7",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",

@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "rxjs": "^6.0.0",
-    "stated-bean": "^0.8.3",
+    "stated-bean": "^0.8.6",
     "yup": "^0.27.0"
   },
   "dependencies": {
@@ -58,7 +58,7 @@
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.3",
     "serve": "^11.1.0",
-    "stated-bean": "^0.8.2",
+    "stated-bean": "^0.8.6",
     "ts-jest": "^24.0.2",
     "type-coverage": "^2.2.0",
     "typescript": "^3.7.2",

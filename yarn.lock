@@ -13014,10 +13014,10 @@ state-toggle@^1.0.0:
   resolved "https://registry.npm.taobao.org/state-toggle/download/state-toggle-1.0.2.tgz#75e93a61944116b4959d665c8db2d243631d6ddc"
   integrity sha1-dek6YZRBFrSVnWZcjbLSQ2Mdbdw=
 
-stated-bean@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/stated-bean/-/stated-bean-0.8.2.tgz#676e34841628c007fc9521111fedfd3c3ef01a50"
-  integrity sha512-2Nieuar+6SU0DZmATFyfWqqISMZVuMZ99DqNjXH+ZfX+tFdWfAwIVAOmbo+nZZ0D2eN0tBAl5Iwh3h99iDxxYQ==
+stated-bean@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/stated-bean/-/stated-bean-0.9.2.tgz#f97ca2d8894bcdb20fe9177e3b7e5e33d3557ed4"
+  integrity sha512-5HyQ3P0Q8F/Tf8gOUk6SygRQFuZDHYFBbwkOyAdtnrF+2Aj0gqS2IDTjJRJeCT5Af/qh3ek3mKKqwsO6y0QFMA==
 
 static-eval@^2.0.0:
   version "2.0.2"

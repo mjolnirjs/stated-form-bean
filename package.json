@@ -30,7 +30,7 @@
   "peerDependencies": {
     "rxjs": "^6.0.0",
     "stated-bean": "^0.8.3",
-    "yup": "^0.27.0"
+    "yup": "^0.32.11"
   },
   "dependencies": {
     "lodash.set": "^4.3.2"
@@ -47,7 +47,7 @@
     "@types/react-dom": "^16.9.4",
     "@types/react-test-renderer": "^16.9.1",
     "@types/set-value": "^2.0.0",
-    "@types/yup": "^0.26.23",
+    "@types/yup": "^0.32.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "npm-run-all": "^4.1.5",
@@ -62,7 +62,7 @@
     "ts-jest": "^24.0.2",
     "type-coverage": "^2.2.0",
     "typescript": "^3.7.2",
-    "yup": "^0.27.0"
+    "yup": "^0.32.11"
   },
   "resolutions": {
     "postcss": "^7.0.21"
